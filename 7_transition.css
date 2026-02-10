@@ -1,0 +1,194 @@
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+}
+
+/* Left Menu */
+#menuItems{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 100vh;
+  background: black;
+  padding-top: 0;
+}
+
+/* Articles Buttons  */
+#menuItems button{
+  width: 100%;
+  border: 0;
+  padding: 10px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  display: block;
+}
+
+
+#menuItems button:hover{
+  background: blue;
+}
+
+/* Jump Menu Hidden */
+#jumpMenu{
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #caa300;
+}
+
+/* Shows Jump Menu Hovered */
+#recentArticles:hover + #jumpMenu,
+#jumpMenu:hover{
+  display: block;
+}
+
+#jumpMenu li{ margin: 0; }
+
+#jumpMenu a{
+  display: block;
+  padding: 4px 10px;
+  font-size: 12px;
+  text-decoration: none;
+  color: blue;
+}
+
+/* Hover over Link */
+#jumpMenu a:hover{
+  background: blue;
+  color: white;
+}
+
+main{
+  margin-left: 150px;
+  padding-top: 90px;
+}
+
+/* Fixed header */
+main header{
+  position: fixed;
+  top: 0;
+  left: 150px;
+  width: calc(100% - 150px);
+  height: 90px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+main header p{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+}
+
+h1{
+  text-align: center;
+  margin: 18px 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Articles Grid */
+#container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 30px 40px;
+  padding: 18px 20px 60px;
+}
+
+article{
+  width: 230px;
+  padding: 8px 10px;
+  background: transparent;   
+  line-height: 1.25;
+
+  color: lightgray;
+  transform: scale(1);
+  transform-origin: top center;
+  position: relative;
+  z-index: 0;
+  transition: transform 2s, color 2s;
+}
+
+article:hover{
+  color: black;
+  transform: scale(1.10);
+  z-index: 5;
+  background: transparent;
+  box-shadow: none;
+}
+
+
+article h2{
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: inherit;
+}
+
+article > p:first-of-type{
+  margin: 0 0 8px;
+  font-size: 10px;
+  color: inherit;
+}
+
+/* "Read more" Line */
+article p:last-child{
+  margin: 0;
+  font-size: 10px;
+}
+
+article a{
+  color: blue;
+  text-decoration: underline;
+}
+article a:visited{
+  color: blue;
+}
+
+article > p:first-of-type::first-letter{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 36px;
+  line-height: 1;
+  padding-right: 4px;
+}
+
+/* Google links get arrow image to the right */
+a[href*="google.com"]::after{
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  vertical-align: middle;
+  background: url("arrowarrow.png") no-repeat center / contain;
+}
+
+/* Thank you Button */
+#thanks{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  margin: 0;
+  background: lightblue;
+  border: 2px solid blue;
+  padding: 8px 12px;
+  font-weight: 700;
+  z-index: 10000;
+}
+
+#thanks a{
+  text-decoration: underline;
+  color: blue;
+}
